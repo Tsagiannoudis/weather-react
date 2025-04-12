@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useState } from "react";
 import WeatherForm from "./WeatherComponents/WeatherForm";
 import WeatherDetails from "./WeatherComponents/WeatherDetails";
 import ForecastHoursDetails from "./WeatherComponents/ForecastHoursDetails";
@@ -60,6 +61,12 @@ const WeatherApp = () => {
     setCity(newCity);
   };
 
+  const [ unit, setUnit ] = useState("Celsius");
+    const handleUnitChange = (newUnit) => {
+      setUnit(newUnit);
+    };
+
+
   return (
     <>
     <div className="flex">
@@ -85,16 +92,18 @@ const WeatherApp = () => {
 
           {/*Weather data*/}
           <div className="">
+            {/*Weather at the momemt*/}
             <div className="pt-5 pb-5">
               {weatherData ? (
-                <WeatherDetails data={weatherData} />
+                <WeatherDetails data={weatherData} unit={unit} onUnitChange={handleUnitChange} />
               ) : (
                 <p className="text-lg font-serif"></p>
               )}
             </div>
+            {/*Weather forecast for the next 5 hours in the some day*/}
             <div>
               {forecastData ? (
-                <ForecastHoursDetails data={forecastData} />
+                <ForecastHoursDetails data={forecastData} unit={unit} />
               ) : (
                 <p className="text-lg font-serif"></p>
               )}

@@ -29,6 +29,8 @@ function WeatherForm({onSubmit}) {
           >
             Search
           </button>
+          <button type="button" className="rounded-lg p-2 m-2 bg-white text-black">
+            add as favorite</button>
         </div>
       </form>
     </div>
