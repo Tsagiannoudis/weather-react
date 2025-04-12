@@ -30,9 +30,10 @@
 
 
 ## Μελλοντικές Βελτιώσεις 
-Προσθήκη προβλέψεων για περισσότερες ημέρες.
-Υποστήριξη πολλαπλών γλωσσών.
-Βελτίωση του UI/UX.
+- Προσθήκη προβλέψεων για περισσότερες ημέρες.
+- Προσθήκη αγαπημένων πόλεων.
+- Αποθήκευση σε localStorage
+- Βελτίωση του UI/UX.
 
 ------------------------------------------------------------------------------------
 
@@ -68,8 +69,7 @@
 
 
 ## Future Improvements 
-Add predictions for more days.
-Support for multiple languages.
-UI/UX improvements.
-
-Translated with DeepL.com (free version)
+- Add predictions for more days.
+- Add favorite cities.
+- Storage in localStorage
+- UI/UX improvement.
