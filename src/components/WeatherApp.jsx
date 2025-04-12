@@ -71,7 +71,7 @@ const WeatherApp = () => {
     <>
     <div className="flex">
       {/* left side */}
-      <div>321</div>
+      <div>Menu</div>
       {/* main container */}
       <div className="p-4 contents">
         {/*Weather card*/}
@@ -112,7 +112,9 @@ const WeatherApp = () => {
         </div>
       </div>
       {/* right side */}
-      <div>6546354654654</div>
+      <div className="flex justify-between p-2">Favorite Cities</div>
+      
+      <div className="flex justify-between p-2">Popular Cities</div>
     </div>
     </>
   );

@@ -73,3 +73,4 @@
 - Add favorite cities.
 - Storage in localStorage
 - UI/UX improvement.
+
