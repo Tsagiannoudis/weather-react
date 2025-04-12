@@ -1,5 +1,5 @@
 import React from "react";
-import ToggleButtonChanger from "../ToggleButtonChanger";
+import ToggleButtonChanger from "./ToggleButtonChanger";
 import HumidityIcon from "../../assets/Hymidity.svg";
 import WindSpeedIcon from "../../assets/WindSpeed.svg";
 
