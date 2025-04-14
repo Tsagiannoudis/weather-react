@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import WeatherForm from "./WeatherComponents/WeatherForm";
+import WeatherSearchForm from "./WeatherComponents/WeatherSearchForm";
 import WeatherDetails from "./WeatherComponents/WeatherDetails";
 import ForecastHoursDetails from "./WeatherComponents/ForecastHoursDetails";
 
@@ -69,19 +69,10 @@ const WeatherApp = () => {
 
   return (
     <>
-    <div className="flex">
-      {/* left side */}
-      <div>Menu</div>
-      {/* main container */}
-      <div className="p-4 contents">
-        {/*Weather card*/}
-        <div
-          className="card rounded-lg pt-5 mx-auto shadow-lg"
-          id="weatherCard"
-        >
-          {/*Search form*/}
-          <div className="rounded-lg">
-            <WeatherForm onSubmit={handleCityChange} />
+    <div id="searchForm">
+      {/*Search form*/}
+      <div className="rounded-lg">
+            <WeatherSearchForm onSubmit={handleCityChange} />
             {loading && (
               <p className="text-center text-blue-600 py-4">
                 Loading data for {city}...
@@ -89,6 +80,15 @@ const WeatherApp = () => {
             )}
             {error && !loading(<p className="text-red-500">{error}</p>)}
           </div>
+    </div>
+    <div className="flex">
+      {/* main container */}
+      <div className="p-4">
+        {/*Weather card*/}
+        <div
+          className="card rounded-lg pt-5 mx-auto shadow-lg"
+          id="weatherCard"
+        >
 
           {/*Weather data*/}
           <div className="">
@@ -100,21 +100,24 @@ const WeatherApp = () => {
                 <p className="text-lg font-serif"></p>
               )}
             </div>
-            {/*Weather forecast for the next 5 hours in the some day*/}
-            <div>
+          </div>
+        </div>
+      </div>
+      {/* right side */}
+      <div className="max-w-3xl border">
+        <div className="flex justify-between p-2">Weather Map</div>
+        <div className="flex justify-between p-2">
+          {/*Weather forecast for the next 5 hours in the some day*/}
+          <div>
               {forecastData ? (
                 <ForecastHoursDetails data={forecastData} unit={unit} />
               ) : (
                 <p className="text-lg font-serif"></p>
               )}
             </div>
-          </div>
         </div>
+        <div className="flex justify-between p-2">Popular Cities</div>
       </div>
-      {/* right side */}
-      <div className="flex justify-between p-2">Favorite Cities</div>
-      
-      <div className="flex justify-between p-2">Popular Cities</div>
     </div>
     </>
   );

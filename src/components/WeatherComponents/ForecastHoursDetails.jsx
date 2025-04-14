@@ -8,20 +8,25 @@ const ForecastHoursDetails = ({ data, unit }) => {
       : Math.round((temp * 9) / 5 + 32);
   };
 
-  const forecastListNextFiveHoursOfDay = data.list.slice(0, 5);
-  // Διαχωρίζουμε 3ωρες προβλέψεις της ημέρας σε 5 διαφορετικές ωρες
+  const currentTime = new Date();
+  const filterForecast = data.list.filter(
+    (forecast) => forecast.dt * 1000 > currentTime
+  );
+
+  const forecastListNextFiveHoursOfDay = filterForecast.slice(0, 7);
+  // Διαχωρίζουμε 3ωρες προβλέψεις της ημέρας σε 7 διαφορετικές ωρες
   
   if (!forecastListNextFiveHoursOfDay) {
     return <p>No forecast data available.</p>;
   }
 
   return (
-    <div className="mt-4 p-4 border-1 rounded-xl bg-gray-700">
+    <div className="mt-4 p-4 rounded-xl">
       {/* Εμφάνιση τίτλου */}
       <h3 className="text-lg font-semibold mb-3 text-left ml-5">
         Today's Forecast
       </h3>
-      <div className="grid grid-cols-5 gap-3">
+      <div className="grid grid-cols-7 gap-3">
         {forecastListNextFiveHoursOfDay.map((forecast) => {
           // Ορισμός μεταβλητών μέσα στο map
           const iconCode = forecast?.weather?.[0]?.icon;
@@ -34,7 +39,7 @@ const ForecastHoursDetails = ({ data, unit }) => {
             // Χρησιμοποιούμε το forecast.dt ως key
             <div
               key={forecast.dt}
-              className="p-2 rounded-lg text-center shadow"
+              className="p-2 rounded-lg text-center shadow bg-gray-600"
             >
               {/* Εμφάνιση Ώρας */}
               <p className="font-semibold text-sm">

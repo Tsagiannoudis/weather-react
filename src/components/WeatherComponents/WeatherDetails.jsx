@@ -47,9 +47,6 @@ const WeatherDetails = ({ data, unit, onUnitChange }) => {
           </p>
           <ToggleButtonChanger onClick={onUnitChange} />
         </div>
-        <div className="pt-2 pl-2">
-          <p>{description}</p>
-        </div>
       </div>
 
       {/* right side */}
@@ -60,9 +57,12 @@ const WeatherDetails = ({ data, unit, onUnitChange }) => {
             src={`https://openweathermap.org/img/wn/${weather[0].icon}.png`}
             alt={description}
             title={description}
-            className="w-40 h-40"
+            className="w-45 h-45"
             loading="lazy"
           />
+        </div>
+        <div className="pl-2 -m-3">
+          <p className="text-2xl">{description}</p>
         </div>
       </div>
     </div>
