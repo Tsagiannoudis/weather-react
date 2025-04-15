@@ -18,7 +18,7 @@ function WeatherForm({onSubmit}) {
         <div>
           <input
             type="text"
-            className="border-2 border-gray-300 rounded-lg p-2 m-2"
+            className="border-1 border-gray-300 rounded-lg w-100 p-2 m-2"
             placeholder="Search for a city..."
             value={city}
             onChange={(e) => setCity(e.target.value)}

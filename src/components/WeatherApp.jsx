@@ -70,11 +70,11 @@ const WeatherApp = () => {
   return (
     <>
     <div id="searchForm">
-      {/*Search form*/}
+      {/*------------------------- Search form --------------------------------*/}
       <div className="rounded-lg">
             <WeatherSearchForm onSubmit={handleCityChange} />
             {loading && (
-              <p className="text-center text-blue-600 py-4">
+              <p className="text-center text-white-600 py-4">
                 Loading data for {city}...
               </p>
             )}
@@ -82,7 +82,7 @@ const WeatherApp = () => {
           </div>
     </div>
     <div className="flex">
-      {/* main container */}
+      {/* ------------------------ main container -------------------------------- */}
       <div className="p-4">
         {/*Weather card*/}
         <div
@@ -92,7 +92,7 @@ const WeatherApp = () => {
 
           {/*Weather data*/}
           <div className="">
-            {/*Weather at the momemt*/}
+            {/*------------------------- Weather at the momemt ---------------------*/}
             <div className="pt-5 pb-5">
               {weatherData ? (
                 <WeatherDetails data={weatherData} unit={unit} onUnitChange={handleUnitChange} />
@@ -107,7 +107,7 @@ const WeatherApp = () => {
       <div className="max-w-3xl border">
         <div className="flex justify-between p-2">Weather Map</div>
         <div className="flex justify-between p-2">
-          {/*Weather forecast for the next 5 hours in the some day*/}
+          {/*------------------- Weather forecast for the next 5 hours in the some day --------------*/}
           <div>
               {forecastData ? (
                 <ForecastHoursDetails data={forecastData} unit={unit} />

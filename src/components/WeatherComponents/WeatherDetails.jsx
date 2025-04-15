@@ -16,14 +16,35 @@ const WeatherDetails = ({ data, unit, onUnitChange }) => {
   
 
   return (
-    <div className="grid grid-cols-2">
-      {/* left side */}
-      <div className="text-left pl-6">
-        <div>
-          <h2 style={{ fontSize: "18px", fontWeight: "bold" }}>
+    <div className="pr-12">
+      <div className="">
+        {/* -----------------Title, Image, description --------------------- */}
+        <h2 style={{ fontSize: "18px", fontWeight: "bold" }}>
             Current Weather
           </h2>
-          <p className="text-sm pb-6">Last updated: {}</p>
+        <h2 style={{ fontSize: "32px", fontWeight: "bold" }}>{data.name}</h2>
+        <div className="flex justify-center items-center">
+          <img
+            src={`https://openweathermap.org/img/wn/${weather[0].icon}.png`}
+            alt={description}
+            title={description}
+            className="w-45 h-45"
+            loading="lazy"
+          />
+        </div>
+        <div className="-m-3">
+          <p className="text-1xl mb-12">{description}</p>
+        </div>
+        <div>
+          {/*--------------- Temperature & Switcher buttton -----------------*/}
+          <p className="text-6xl font-bold pt-2">
+            {convertTemperature}°<sup className="text-4xl">{unit === "Celsius" ? "C" : "F"}</sup>
+          </p>
+          <ToggleButtonChanger onClick={onUnitChange} />
+        </div>
+        <div className="text-left pl-6">
+         {/*----------------- Wind speed & Humidity ------------------*/}
+        <div>
           <p className="pb-2 pt-2">
             <img
               src={WindSpeedIcon}
@@ -41,29 +62,7 @@ const WeatherDetails = ({ data, unit, onUnitChange }) => {
             {humidity}%
           </p>
         </div>
-        <div>
-          <p className="text-5xl font-bold pt-4">
-            {convertTemperature}°{unit === "Celsius" ? "C" : "F"}
-          </p>
-          <ToggleButtonChanger onClick={onUnitChange} />
-        </div>
       </div>
-
-      {/* right side */}
-      <div className="">
-        <h2 style={{ fontSize: "32px", fontWeight: "bold" }}>{data.name}</h2>
-        <div className="flex justify-center items-center">
-          <img
-            src={`https://openweathermap.org/img/wn/${weather[0].icon}.png`}
-            alt={description}
-            title={description}
-            className="w-45 h-45"
-            loading="lazy"
-          />
-        </div>
-        <div className="pl-2 -m-3">
-          <p className="text-2xl">{description}</p>
-        </div>
       </div>
     </div>
   );

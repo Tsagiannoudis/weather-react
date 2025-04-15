@@ -60,7 +60,7 @@ const ForecastHoursDetails = ({ data, unit }) => {
               {/* Εμφάνιση Θερμοκρασίας */}
               <p className="text-base font-medium">
                 {convertTemperature(forecast.main.temp)}°
-                {unit === "Celsius" ? "C" : "F"}
+                <sup>{unit === "Celsius" ? "c" : "f"}</sup>
               </p>
             </div>
           );
