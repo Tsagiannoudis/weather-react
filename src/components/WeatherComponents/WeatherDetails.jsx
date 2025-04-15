@@ -10,6 +10,8 @@ const WeatherDetails = ({ data, unit, onUnitChange }) => {
   const humidity = main.humidity;
   const windSpeed = wind.speed;
   const description = weather[0].description;
+  const clouds = data.clouds?.all;
+  const feelsLike = main.feels_like;
 
   const convertTemperature =
     unit === "Celsius" ? Math.round(temperature) : Math.round((temperature * 9) / 5 + 32);
@@ -21,7 +23,7 @@ const WeatherDetails = ({ data, unit, onUnitChange }) => {
         {/* -----------------Title, Image, description --------------------- */}
         <h2 style={{ fontSize: "18px", fontWeight: "bold" }}>
             Current Weather
-          </h2>
+        </h2>
         <h2 style={{ fontSize: "32px", fontWeight: "bold" }}>{data.name}</h2>
         <div className="flex justify-center items-center">
           <img
@@ -43,7 +45,7 @@ const WeatherDetails = ({ data, unit, onUnitChange }) => {
           <ToggleButtonChanger onClick={onUnitChange} />
         </div>
         <div className="text-left pl-6">
-         {/*----------------- Wind speed & Humidity ------------------*/}
+         {/*----------------- Wind speed, Humidity,  ------------------*/}
         <div>
           <p className="pb-2 pt-2">
             <img
@@ -53,7 +55,7 @@ const WeatherDetails = ({ data, unit, onUnitChange }) => {
             />
             {windSpeed} m/s
           </p>
-          <p>
+          <p className="pb-2 pt-2">
             <img
               src={HumidityIcon}
               alt="Humidity Icon"
@@ -61,6 +63,22 @@ const WeatherDetails = ({ data, unit, onUnitChange }) => {
             />
             {humidity}%
           </p>
+          {/* <p className="pb-2 pt-2">
+            <img
+              src={CloudsIcon}
+              alt="Clouds Icon"
+              className="w-6 h-6 inline mr-2 invert"
+            />
+            {clouds}%
+          </p>
+          <p className="pb-2 pt-2">
+            <img
+              src={FellsLikeIcon}
+              alt="Fells Like Icon"
+              className="w-6 h-6 inline mr-2 invert"
+            />
+            {Math.round(feelsLike)}%
+          </p> */}
         </div>
       </div>
       </div>
