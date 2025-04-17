@@ -33,7 +33,7 @@ const WeatherDetails = ({ data, unit, onUnitChange, onAddToFavorites }) => {
           <button
               id="favButton"
               type="button"
-              className="rounded-sm p-2 m-2 w-10 bg-gray-600 text-white text-xs"
+              className="rounded-sm p-2 m-2 w-10 bg-gray-600 text-white text-xs  cursor-pointer"
               onClick={() => onAddToFavorites(data.name)}
             >
             Add ⭐

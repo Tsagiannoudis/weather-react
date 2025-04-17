@@ -137,11 +137,11 @@ const WeatherApp = () => {
           <div>
             <div className="mt-4">
               <h3 className="text-s font-semibold mb-3 text-left ml-5">Favorite Cities</h3>
-              <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-6 gap-4">
+              <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-6 gap-4 ml-4 mr-4">
                 {favoriteCities.map((city) => (
                   <div
                     key={city}
-                    className="p-1 rounded-lg text-center shadow bg-gray-600"
+                    className="p-1 rounded-lg text-center shadow bg-gray-600 cursor-pointer"
                     onClick={() => handleCityChange(city)}
                   >
                     <h4 className="font-bold text-sm">{city}</h4>
