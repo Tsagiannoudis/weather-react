@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 
-const PopoularCities = ({ apiKey, unit }) => {
+const PopularCities = ({ apiKey, unit }) => {
   const [citiesWeather, setCitiesWeather] = useState([]);
   const popularCities = [
-    "London",
     "New York",
-    "Tokyo",
+    "London",
     "Berlin",
-    "China",
     "Dubai",
+    "China",
+    "Tokyo",
   ];
 
   const convertTemperature = (temp) => {
@@ -35,21 +35,25 @@ const PopoularCities = ({ apiKey, unit }) => {
 
   return (
     <div className="mt-4 p-4 rounded-xl">
+      {/* -----------------Εμφάνιση τίτλου ----------------- */}
       <h3 className="text-lg font-semibold mb-3 text-left ml-5">
         Popular Cities
       </h3>
       <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-6 gap-4">
         {citiesWeather.map((cityWeather) => (
+          // --------------- τιτλος πόλης -------------------
           <div
             key={cityWeather.id}
             className="p-2 rounded-lg text-center shadow bg-gray-600"
           >
             <h4 className="font-bold text-lg">{cityWeather.name}</h4>
+            {/* ----------- Εμφάνιση εικόνας ------------------------- */}
             <img
               src={`https://openweathermap.org/img/wn/${cityWeather.weather[0].icon}.png`}
               alt={cityWeather.weather[0].description}
               className="mx-auto my-1 w-16 h-16"
             />
+            {/* ---------- Εμφάνιση Θερμοκρασίας και περιγραφή ---------- */}
             <p className="text-base font-medium">
               {convertTemperature(cityWeather.main.temp)}°
               <sup>{unit === "Celsius" ? "c" : "f"}</sup>
@@ -62,4 +66,4 @@ const PopoularCities = ({ apiKey, unit }) => {
   );
 };
 
-export default PopoularCities;
+export default PopularCities;

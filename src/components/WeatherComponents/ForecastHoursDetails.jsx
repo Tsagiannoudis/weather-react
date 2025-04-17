@@ -23,13 +23,13 @@ const ForecastHoursDetails = ({ data, unit }) => {
 
   return (
     <div className="mt-4 p-4 rounded-xl">
-      {/* Εμφάνιση τίτλου */}
+      {/*  ------------------ Εμφάνιση τίτλου ------------------ */}
       <h3 className="text-lg font-semibold mb-3 text-left">
         Today's Forecast
       </h3>
       <div className="grid grid-cols-7 gap-3">
         {forecastListNextFiveHoursOfDay.map((forecast) => {
-          // Ορισμός μεταβλητών μέσα στο map
+          //  ----------- Ορισμός μεταβλητών μέσα στο map ------------
           const iconCode = forecast?.weather?.[0]?.icon;
           const description = forecast?.weather?.[0]?.description;
           // console.log(`${new Date(forecast.dt * 1000).toLocaleTimeString()}, Icon Code: ${iconCode}, Description: ${description}`);
@@ -37,12 +37,12 @@ const ForecastHoursDetails = ({ data, unit }) => {
           const date = new Date(forecast.dt * 1000);
 
           return (
-            // Χρησιμοποιούμε το forecast.dt ως key
+            // ------- Χρησιμοποιούμε το forecast.dt ως key  ------------------
             <div
               key={forecast.dt}
               className="p-2 rounded-lg text-center shadow bg-gray-600"
             >
-              {/* Εμφάνιση Ώρας */}
+              {/* ------------------- Εμφάνιση Ώρας ---------------------- */}
               <p className="font-semibold text-sm">
                 {date.toLocaleTimeString("el-GR", {
                   hour: "2-digit",
@@ -50,7 +50,7 @@ const ForecastHoursDetails = ({ data, unit }) => {
                   hour12: false,
                 })}
               </p>
-              {/* Εμφάνιση Εικονιδίου */}
+              {/* ------------------- Εμφάνιση Εικονιδίου ---------------- */}
               <img
                 src={iconUrl}
                 alt={description}
@@ -58,7 +58,7 @@ const ForecastHoursDetails = ({ data, unit }) => {
                 className="mx-auto my-1 w-20 h-20"
                 loading="lazy"
               />
-              {/* Εμφάνιση Θερμοκρασίας */}
+              {/* ---------------- Εμφάνιση Θερμοκρασίας ---------------- */}
               <p className="text-base font-medium">
                 {convertTemperature(forecast.main.temp)}°
                 <sup>{unit === "Celsius" ? "c" : "f"}</sup>

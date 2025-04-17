@@ -15,15 +15,16 @@ const WeatherDetails = ({ data, unit, onUnitChange }) => {
   // const feelsLike = main.feels_like;
 
   const convertTemperature =
-    unit === "Celsius" ? Math.round(temperature) : Math.round((temperature * 9) / 5 + 32);
-  
+    unit === "Celsius"
+      ? Math.round(temperature)
+      : Math.round((temperature * 9) / 5 + 32);
 
   return (
-    <div className="pr-12">
+    <div className="pr-15">
       <div className="">
         {/* -----------------Title, Image, description --------------------- */}
         <h2 style={{ fontSize: "18px", fontWeight: "bold" }}>
-            Current Weather
+          Current Weather
         </h2>
         <h2 style={{ fontSize: "32px", fontWeight: "bold" }}>{data.name}</h2>
         <div className="flex justify-center items-center">
@@ -41,38 +42,49 @@ const WeatherDetails = ({ data, unit, onUnitChange }) => {
         <div>
           {/*--------------- Temperature & Switcher buttton -----------------*/}
           <p className="text-6xl font-bold pt-2">
-            {convertTemperature}°<sup className="text-4xl">{unit === "Celsius" ? "C" : "F"}</sup>
+            {convertTemperature}°
+            <sup className="text-4xl">{unit === "Celsius" ? "C" : "F"}</sup>
           </p>
           <ToggleButtonChanger onClick={onUnitChange} />
         </div>
         <div className="text-left pl-6">
-         {/*----------------- Wind speed, Humidity,  ------------------*/}
-        <div>
-          <p className="pb-2 pt-2">
-            <img
-              src={WindSpeedIcon}
-              alt="WindSpeed Icon"
-              className="w-8 h-8 inline mr-2 invert"
-            />
-            {windSpeed} m/s
-          </p>
-          <p className="pb-2 pt-2">
-            <img
-              src={HumidityIcon}
-              alt="Humidity Icon"
-              className="w-8 h-8 inline mr-2 invert"
-            />
-            {humidity}%
-          </p>
-          <p className="pb-2 pt-2">
-            <img
-              src={CloudsIcon}
-              alt="Clouds Icon"
-              className="w-8 h-8 inline mr-2 invert"
-            />
-            {clouds}%
-          </p>
-          {/* <p className="pb-2 pt-2">
+          {/*-------------- Wind speed, Humidity, Clouds ----------------*/}
+          <div className="pt-5 pb-5">
+            <div className="pb-2 pt-2">
+              <span className="pb-2 pt-2">
+                <img
+                  src={WindSpeedIcon}
+                  alt="WindSpeed Icon"
+                  className="w-5 h-5 inline mr-2 invert"
+                />
+                <span>Wind Speed</span>
+                <p>{windSpeed} m/s</p>
+              </span>
+            </div>
+            <div className="pb-2 pt-2">
+              <span className="pb-2 pt-2">
+                <img
+                  src={HumidityIcon}
+                  alt="Humidity Icon"
+                  className="w-5 h-5 inline mr-2 invert"
+                />
+                <span>Humidity</span>
+                <p>{humidity} m/s</p>
+              </span>
+            </div>
+            <div className="pb-2 pt-2">
+              <span className="pb-2 pt-2">
+                <img
+                  src={CloudsIcon}
+                  alt="Clouds Icon"
+                  className="w-5 h-5 inline mr-2 invert"
+                />
+                <span>Clouds</span>
+                <p>{clouds}%</p>
+              </span>
+            </div>
+
+            {/* <p className="pb-2 pt-2">
             <img
               src={FellsLikeIcon}
               alt="Fells Like Icon"
@@ -80,8 +92,8 @@ const WeatherDetails = ({ data, unit, onUnitChange }) => {
             />
             {Math.round(feelsLike)}%
           </p> */}
+          </div>
         </div>
-      </div>
       </div>
     </div>
   );
