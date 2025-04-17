@@ -13,7 +13,7 @@ function ToggleButtonChanger({ onClick }) {
       <button
         type="button"
         onClick={handleToggle}
-        className="rounded-lg p-2 m-2 bg-white text-black"
+        className="rounded-lg p-2 m-2 bg-white text-black text-xs"
       >
         {isCelsius ? "Switch to Fahrenheit" : "Switch to Celsius"}
       </button>

@@ -34,9 +34,9 @@ const PopularCities = ({ apiKey, unit }) => {
   }, [apiKey, unit]);
 
   return (
-    <div className="mt-4 p-4 rounded-xl">
+    <div className="mt-4 p-4">
       {/* -----------------Εμφάνιση τίτλου ----------------- */}
-      <h3 className="text-lg font-semibold mb-3 text-left ml-5">
+      <h3 className="text-lg font-semibold mb-3 text-left">
         Popular Cities
       </h3>
       <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-6 gap-4">

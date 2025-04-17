@@ -4,7 +4,7 @@ import HumidityIcon from "../../assets/Hymidity.svg";
 import WindSpeedIcon from "../../assets/WindSpeed.svg";
 import CloudsIcon from "../../assets/Clouds.svg";
 
-const WeatherDetails = ({ data, unit, onUnitChange }) => {
+const WeatherDetails = ({ data, unit, onUnitChange, onAddToFavorites }) => {
   const { main, weather, wind } = data;
 
   const temperature = main.temp;
@@ -20,13 +20,25 @@ const WeatherDetails = ({ data, unit, onUnitChange }) => {
       : Math.round((temperature * 9) / 5 + 32);
 
   return (
-    <div className="pr-15">
+    <div className="pr-5">
       <div className="">
-        {/* -----------------Title, Image, description --------------------- */}
-        <h2 style={{ fontSize: "18px", fontWeight: "bold" }}>
+        {/* ---------- Title, FavoriteButton, Image, description ------------ */}
+        <h2 style={{ fontSize: "16px", fontWeight: "bold" }}>
           Current Weather
         </h2>
-        <h2 style={{ fontSize: "32px", fontWeight: "bold" }}>{data.name}</h2>
+        <div className="flex">
+          <h2 style={{ fontSize: "32px", fontWeight: "bold" }}>
+            {data.name}
+          </h2>
+          <button
+              id="favButton"
+              type="button"
+              className="rounded-sm p-2 m-2 w-10 bg-gray-600 text-white text-xs"
+              onClick={() => onAddToFavorites(data.name)}
+            >
+            Add ⭐
+            </button>
+        </div>
         <div className="flex justify-center items-center">
           <img
             src={`https://openweathermap.org/img/wn/${weather[0].icon}.png`}

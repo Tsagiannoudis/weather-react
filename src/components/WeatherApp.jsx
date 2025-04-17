@@ -12,6 +12,7 @@ const WeatherApp = () => {
   const [city, setCity] = React.useState("Thessaloniki");
   const [error, setError] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
+  const [favoriteCities, setFavoriteCities] = React.useState([]);
 
   useEffect(() => {
     const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -67,6 +68,14 @@ const WeatherApp = () => {
     setUnit(newUnit);
   };
 
+  const addToFavorites = (city) => {
+    if (!favoriteCities.includes(city)) {
+      setFavoriteCities([...favoriteCities, city]);
+    } else {
+      alert("City already in favorites!");
+    }
+  };
+
   return (
     <>
       <div id="searchForm">
@@ -83,10 +92,10 @@ const WeatherApp = () => {
       </div>
       <div className="flex">
         {/* ------------------------ main container -------------------------------- */}
-        <div className="border mr-4 rounded-2xl">
+        <div className="border mr-4 rounded-lg">
           {/*-------------------------left side-------------------------------*/}
           <div
-            className="card rounded-lg pl-4 mx-auto shadow-lg"
+            className="card rounded-sm pl-4 mx-auto shadow-lg"
             id="weatherCard"
           >
             <div className="">
@@ -97,6 +106,7 @@ const WeatherApp = () => {
                     data={weatherData}
                     unit={unit}
                     onUnitChange={handleUnitChange}
+                    onAddToFavorites={addToFavorites}
                   />
                 ) : (
                   <p className="text-lg font-serif"></p>
@@ -106,9 +116,9 @@ const WeatherApp = () => {
           </div>
         </div>
         {/* -------------------------- right side ------------------------------- */}
-        <div className="max-w-6xl rounded-2xl border shadow-xl p-2">
-          <div className="flex justify-between p-2">Weather Map</div>
-          <div className="flex justify-between p-2">
+        <div className="max-w-6xl rounded-lg border shadow-xl p-2">
+          <div className="flex justify-between p-2">More Details</div>
+          <div className="flex justify-between">
             {/*------------ Weather forecast for the next 5 hours in the some day ------------*/}
             <div>
               {forecastData ? (
@@ -122,6 +132,22 @@ const WeatherApp = () => {
             {/*------------------------ Popular cities -----------------------*/}
             <div>
               <PopularCities apiKey={apiKey} unit={unit} />
+            </div>
+          </div>
+          <div>
+            <div className="mt-4">
+              <h3 className="text-s font-semibold mb-3 text-left ml-5">Favorite Cities</h3>
+              <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-6 gap-4">
+                {favoriteCities.map((city) => (
+                  <div
+                    key={city}
+                    className="p-1 rounded-lg text-center shadow bg-gray-600"
+                    onClick={() => handleCityChange(city)}
+                  >
+                    <h4 className="font-bold text-sm">{city}</h4>
+                  </div>
+                ))}
+                </div>
             </div>
           </div>
         </div>
