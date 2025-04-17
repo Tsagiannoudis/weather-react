@@ -8,6 +8,7 @@ const ForecastHoursDetails = ({ data, unit }) => {
       : Math.round((temp * 9) / 5 + 32);
   };
 
+  // Ελέγχουμε αν την τρέχουσα ώρα της πρόβλεψη
   const currentTime = new Date();
   const filterForecast = data.list.filter(
     (forecast) => forecast.dt * 1000 > currentTime
@@ -23,7 +24,7 @@ const ForecastHoursDetails = ({ data, unit }) => {
   return (
     <div className="mt-4 p-4 rounded-xl">
       {/* Εμφάνιση τίτλου */}
-      <h3 className="text-lg font-semibold mb-3 text-left ml-5">
+      <h3 className="text-lg font-semibold mb-3 text-left">
         Today's Forecast
       </h3>
       <div className="grid grid-cols-7 gap-3">
@@ -61,6 +62,9 @@ const ForecastHoursDetails = ({ data, unit }) => {
               <p className="text-base font-medium">
                 {convertTemperature(forecast.main.temp)}°
                 <sup>{unit === "Celsius" ? "c" : "f"}</sup>
+              </p>
+              <p className="text-sm">
+                {description}
               </p>
             </div>
           );

@@ -3,6 +3,7 @@ import { useState } from "react";
 import WeatherSearchForm from "./WeatherComponents/WeatherSearchForm";
 import WeatherDetails from "./WeatherComponents/WeatherDetails";
 import ForecastHoursDetails from "./WeatherComponents/ForecastHoursDetails";
+import PopularCities from "./WeatherComponents/PopularCities";
 
 const WeatherApp = () => {
   const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
@@ -61,64 +62,70 @@ const WeatherApp = () => {
     setCity(newCity);
   };
 
-  const [ unit, setUnit ] = useState("Celsius");
-    const handleUnitChange = (newUnit) => {
-      setUnit(newUnit);
-    };
-
+  const [unit, setUnit] = useState("Celsius");
+  const handleUnitChange = (newUnit) => {
+    setUnit(newUnit);
+  };
 
   return (
     <>
-    <div id="searchForm">
-      {/*------------------------- Search form --------------------------------*/}
-      <div className="rounded-lg">
-            <WeatherSearchForm onSubmit={handleCityChange} />
-            {loading && (
-              <p className="text-center text-white-600 py-4">
-                Loading data for {city}...
-              </p>
-            )}
-            {error && !loading(<p className="text-red-500">{error}</p>)}
-          </div>
-    </div>
-    <div className="flex">
-      {/* ------------------------ main container -------------------------------- */}
-      <div className="p-4">
-        {/*Weather card*/}
-        <div
-          className="card rounded-lg pt-5 mx-auto shadow-lg"
-          id="weatherCard"
-        >
-
-          {/*Weather data*/}
-          <div className="">
-            {/*------------------------- Weather at the momemt ---------------------*/}
-            <div className="pt-5 pb-5">
-              {weatherData ? (
-                <WeatherDetails data={weatherData} unit={unit} onUnitChange={handleUnitChange} />
-              ) : (
-                <p className="text-lg font-serif"></p>
-              )}
+      <div id="searchForm">
+        {/*------------------------- Search form --------------------------------*/}
+        <div className="rounded-lg">
+          <WeatherSearchForm onSubmit={handleCityChange} />
+          {loading && (
+            <p className="text-center text-white-600 py-4">
+              Loading data for {city}...
+            </p>
+          )}
+          {error && !loading(<p className="text-red-500">{error}</p>)}
+        </div>
+      </div>
+      <div className="flex">
+        {/* ------------------------ main container -------------------------------- */}
+        <div className="p-4">
+          {/*-------------------------left side-------------------------------*/}
+          <div
+            className="card rounded-lg pt-5 mx-auto shadow-lg"
+            id="weatherCard"
+          >
+            <div className="">
+              {/*------------------------- Weather at the momemt ---------------------*/}
+              <div className="pt-5 pb-5">
+                {weatherData ? (
+                  <WeatherDetails
+                    data={weatherData}
+                    unit={unit}
+                    onUnitChange={handleUnitChange}
+                  />
+                ) : (
+                  <p className="text-lg font-serif"></p>
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      {/* right side */}
-      <div className="max-w-3xl border">
-        <div className="flex justify-between p-2">Weather Map</div>
-        <div className="flex justify-between p-2">
-          {/*------------------- Weather forecast for the next 5 hours in the some day --------------*/}
-          <div>
+        {/* -------------------------- right side ------------------------------- */}
+        <div className="max-w-6xl border">
+          <div className="flex justify-between p-2">Weather Map</div>
+          <div className="flex justify-between p-2">
+            {/*------------ Weather forecast for the next 5 hours in the some day ------------*/}
+            <div>
               {forecastData ? (
                 <ForecastHoursDetails data={forecastData} unit={unit} />
               ) : (
                 <p className="text-lg font-serif"></p>
               )}
             </div>
+          </div>
+          <div>
+            {/*------------------------ Popular cities -----------------------*/}
+            <div>
+              <PopularCities apiKey={apiKey} unit={unit} />
+            </div>
+          </div>
         </div>
-        <div className="flex justify-between p-2">Popular Cities</div>
       </div>
-    </div>
     </>
   );
 };

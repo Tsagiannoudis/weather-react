@@ -2,6 +2,7 @@ import React from "react";
 import ToggleButtonChanger from "./ToggleButtonChanger";
 import HumidityIcon from "../../assets/Hymidity.svg";
 import WindSpeedIcon from "../../assets/WindSpeed.svg";
+import CloudsIcon from "../../assets/Clouds.svg";
 
 const WeatherDetails = ({ data, unit, onUnitChange }) => {
   const { main, weather, wind } = data;
@@ -11,7 +12,7 @@ const WeatherDetails = ({ data, unit, onUnitChange }) => {
   const windSpeed = wind.speed;
   const description = weather[0].description;
   const clouds = data.clouds?.all;
-  const feelsLike = main.feels_like;
+  // const feelsLike = main.feels_like;
 
   const convertTemperature =
     unit === "Celsius" ? Math.round(temperature) : Math.round((temperature * 9) / 5 + 32);
@@ -51,7 +52,7 @@ const WeatherDetails = ({ data, unit, onUnitChange }) => {
             <img
               src={WindSpeedIcon}
               alt="WindSpeed Icon"
-              className="w-6 h-6 inline mr-2 invert"
+              className="w-8 h-8 inline mr-2 invert"
             />
             {windSpeed} m/s
           </p>
@@ -59,19 +60,19 @@ const WeatherDetails = ({ data, unit, onUnitChange }) => {
             <img
               src={HumidityIcon}
               alt="Humidity Icon"
-              className="w-6 h-6 inline mr-2 invert"
+              className="w-8 h-8 inline mr-2 invert"
             />
             {humidity}%
           </p>
-          {/* <p className="pb-2 pt-2">
+          <p className="pb-2 pt-2">
             <img
               src={CloudsIcon}
               alt="Clouds Icon"
-              className="w-6 h-6 inline mr-2 invert"
+              className="w-8 h-8 inline mr-2 invert"
             />
             {clouds}%
           </p>
-          <p className="pb-2 pt-2">
+          {/* <p className="pb-2 pt-2">
             <img
               src={FellsLikeIcon}
               alt="Fells Like Icon"
