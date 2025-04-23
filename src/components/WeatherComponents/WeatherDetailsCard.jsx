@@ -4,7 +4,7 @@ import HumidityIcon from "../../assets/Hymidity.svg";
 import WindSpeedIcon from "../../assets/WindSpeed.svg";
 import CloudsIcon from "../../assets/Clouds.svg";
 
-const WeatherDetails = ({ data, unit, onUnitChange, onAddToFavorites }) => {
+const WeatherDetails = ({ data, unit, onUnitChange, onAddToFavorites, onRemoveFromFavorites }) => {
   const { main, weather, wind } = data;
 
   const temperature = main.temp;
@@ -26,18 +26,26 @@ const WeatherDetails = ({ data, unit, onUnitChange, onAddToFavorites }) => {
         <h2 style={{ fontSize: "16px", fontWeight: "bold" }}>
           Current Weather
         </h2>
-        <div className="flex">
-          <h2 style={{ fontSize: "32px", fontWeight: "bold" }}>
+          <h2 style={{ fontSize: "32px", fontWeight: "bold",}}>
             {data.name}
           </h2>
+        <div className="justify-center items-center">
           <button
-              id="favButton"
+              id="favoriteButton"
               type="button"
-              className="rounded-sm p-2 m-2 w-10 bg-gray-600 text-white text-xs  cursor-pointer"
+              className="rounded-sm p-2 m-2 w-20 bg-gray-600 text-white text-xs  cursor-pointer"
               onClick={() => onAddToFavorites(data.name)}
             >
             Add ⭐
-            </button>
+          </button>
+          <button
+              id="favoriteButton"
+              type="button"
+              className="rounded-sm p-2 m-2 w-20 bg-gray-600 text-white text-xs  cursor-pointer"
+              onClick={() => onRemoveFromFavorites(data.name)}
+            >
+            Revove ❌
+          </button>
         </div>
         <div className="flex justify-center items-center">
           <img

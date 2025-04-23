@@ -83,6 +83,13 @@ const WeatherApp = () => {
     }
   };
 
+  const removeFromFavorites = (cityRemove) => {
+    const updatedCities = favoriteCities.filter(
+      (city) => city !== cityRemove
+    );
+    setFavoriteCities(updatedCities);
+  };
+
   return (
     <>
       <div id="searchForm" className="mb-4">
@@ -114,6 +121,7 @@ const WeatherApp = () => {
                     unit={unit}
                     onUnitChange={handleUnitChange}
                     onAddToFavorites={addToFavorites}
+                    onRemoveFromFavorites={removeFromFavorites}
                   />
                 ) : (
                   <p className="text-lg font-serif"></p>
