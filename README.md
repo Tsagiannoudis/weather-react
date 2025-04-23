@@ -8,6 +8,7 @@
 - **Προβλέψεις 5 Ωρών**: Εμφάνιση πρόβλεψης καιρού για τις επόμενες 5 ώρες με εικονίδια και θερμοκρασίες.
 - **Εναλλαγή Μονάδας Θερμοκρασίας**: Δυνατότητα αλλαγής μεταξύ Κελσίου (°C) και Φαρενάιτ (°F).
 - **Προσαρμοσμένα Εικονίδια**: Χρήση προσαρμοσμένων εικονιδίων για τις καιρικές συνθήκες.
+- **Αγαπημένων πόλεων**: Δυνατότητα αποθήκευσης αγαπημένων πόλεων για γρήγορη πρόσβαση.
 - **Responsive Design**: Βελτιστοποιημένο για χρήση σε κινητές συσκευές και υπολογιστές.
 
 ## Τεχνολογίες
@@ -31,7 +32,6 @@
 
 ## Μελλοντικές Βελτιώσεις 
 - Προσθήκη προβλέψεων για περισσότερες ημέρες.
-- Προσθήκη αγαπημένων πόλεων.
 - Αποθήκευση σε localStorage
 - Βελτίωση του UI/UX.
 
@@ -47,6 +47,7 @@
 - **5 Hour Forecast**: show weather forecast for the next 5 hours with icons and temperatures.
 - **Temperature Unit Switch**: Ability to switch between Celsius (°C) and Fahrenheit (°F).
 - **Custom Icons**: Use custom icons for weather conditions.
+- **Favorite Cities**: Allows users to save favorite cities for quick access.
 - **Responsive Design**: Optimized for use on mobile devices and computers.
 
 ## Technologies
@@ -70,7 +71,6 @@
 
 ## Future Improvements 
 - Add predictions for more days.
-- Add favorite cities.
 - Storage in localStorage
 - UI/UX improvement.
 
