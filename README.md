@@ -33,6 +33,7 @@
 
 ## Μελλοντικές Βελτιώσεις 
 - Προσθήκη προβλέψεων για περισσότερες ημέρες.
+- Αφαίρεση favorite cities.
 - Βελτίωση του UI/UX.
 
 ------------------------------------------------------------------------------------
@@ -50,7 +51,6 @@
 - **Favorite Cities**: Allows users to save favorite cities for quick access.
 - **Responsive Design**: Optimized for use on mobile devices and computers.
 - **LocalStorage**: Saves favorite cities.
-
 
 ## Technologies
 
@@ -73,5 +73,6 @@
 
 ## Future Improvements 
 - Add predictions for more days.
+- remove favorite cities.
 - UI/UX improvement.
 
