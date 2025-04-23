@@ -78,7 +78,7 @@ const WeatherApp = () => {
 
   return (
     <>
-      <div id="searchForm">
+      <div id="searchForm" className="mb-4">
         {/*------------------------- Search form --------------------------------*/}
         <div className="rounded-lg">
           <WeatherSearchForm onSubmit={handleCityChange} />
@@ -90,9 +90,9 @@ const WeatherApp = () => {
           {error && !loading(<p className="text-red-500">{error}</p>)}
         </div>
       </div>
-      <div className="flex">
+      <div className="flex shadow-2xl rounded-lg min-w-2xs">
         {/* ------------------------ main container -------------------------------- */}
-        <div className="border mr-4 rounded-lg">
+        <div className="mr-4 rounded-lg shadow-2xl">
           {/*-------------------------left side-------------------------------*/}
           <div
             className="card rounded-sm pl-4 mx-auto shadow-lg"
@@ -116,7 +116,7 @@ const WeatherApp = () => {
           </div>
         </div>
         {/* -------------------------- right side ------------------------------- */}
-        <div className="max-w-6xl rounded-lg border shadow-xl p-2">
+        <div className="max-w-6xl rounded-lg p-2">
           <div className="flex justify-between p-2">More Details</div>
           <div className="flex justify-between">
             {/*------------ Weather forecast for the next 5 hours in the some day ------------*/}

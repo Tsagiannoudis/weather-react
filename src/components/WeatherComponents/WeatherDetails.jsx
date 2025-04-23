@@ -20,7 +20,7 @@ const WeatherDetails = ({ data, unit, onUnitChange, onAddToFavorites }) => {
       : Math.round((temperature * 9) / 5 + 32);
 
   return (
-    <div className="pr-5">
+    <div className="w-65">
       <div className="">
         {/* ---------- Title, FavoriteButton, Image, description ------------ */}
         <h2 style={{ fontSize: "16px", fontWeight: "bold" }}>
