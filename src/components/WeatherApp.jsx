@@ -1,18 +1,21 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import WeatherSearchForm from "./WeatherComponents/WeatherSearchForm";
-import WeatherDetails from "./WeatherComponents/WeatherDetails";
+import WeatherDetailsCard from "./WeatherComponents/WeatherDetailsCard";
 import ForecastHoursDetails from "./WeatherComponents/ForecastHoursDetails";
 import PopularCities from "./WeatherComponents/PopularCities";
 
 const WeatherApp = () => {
   const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
-  const [weatherData, setWeatherData] = React.useState(null);
-  const [forecastData, setForecastData] = React.useState(null);
-  const [city, setCity] = React.useState("Thessaloniki");
-  const [error, setError] = React.useState(null);
-  const [loading, setLoading] = React.useState(false);
-  const [favoriteCities, setFavoriteCities] = React.useState([]);
+  const [weatherData, setWeatherData] = useState(null);
+  const [forecastData, setForecastData] = useState(null);
+  const [city, setCity] = useState("Thessaloniki");
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [favoriteCities, setFavoriteCities] = useState(() => { // αποθήκευση αγαπημένων πόλεων στο localStorage
+    const savedCities = localStorage.getItem("favoriteCities");
+    return savedCities ? JSON.parse(savedCities) : [];
+  });
 
   useEffect(() => {
     const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric`;
@@ -59,6 +62,10 @@ const WeatherApp = () => {
     fetchWeatherData(); //αλλαγή πολής με fetchWeatherData
   }, [apiKey, city]);
 
+  useEffect(() => { // αποθήκευση αγαπημένων πόλεων στο localStorage
+    localStorage.setItem("favoriteCities", JSON.stringify(favoriteCities));
+  }, [favoriteCities]);
+
   const handleCityChange = (newCity) => {
     setCity(newCity);
   };
@@ -102,7 +109,7 @@ const WeatherApp = () => {
               {/*------------------------- Weather at the momemt ---------------------*/}
               <div className="pt-5 pb-5">
                 {weatherData ? (
-                  <WeatherDetails
+                  <WeatherDetailsCard
                     data={weatherData}
                     unit={unit}
                     onUnitChange={handleUnitChange}

@@ -10,6 +10,7 @@
 - **Προσαρμοσμένα Εικονίδια**: Χρήση προσαρμοσμένων εικονιδίων για τις καιρικές συνθήκες.
 - **Αγαπημένων πόλεων**: Δυνατότητα αποθήκευσης αγαπημένων πόλεων για γρήγορη πρόσβαση.
 - **Responsive Design**: Βελτιστοποιημένο για χρήση σε κινητές συσκευές και υπολογιστές.
+- **LocalStorage**: Αποθήκευση αγαπημένων πόλεων.
 
 ## Τεχνολογίες
 
@@ -32,7 +33,6 @@
 
 ## Μελλοντικές Βελτιώσεις 
 - Προσθήκη προβλέψεων για περισσότερες ημέρες.
-- Αποθήκευση σε localStorage
 - Βελτίωση του UI/UX.
 
 ------------------------------------------------------------------------------------
@@ -49,6 +49,8 @@
 - **Custom Icons**: Use custom icons for weather conditions.
 - **Favorite Cities**: Allows users to save favorite cities for quick access.
 - **Responsive Design**: Optimized for use on mobile devices and computers.
+- **LocalStorage**: Saves favorite cities.
+
 
 ## Technologies
 
@@ -71,6 +73,5 @@
 
 ## Future Improvements 
 - Add predictions for more days.
-- Storage in localStorage
 - UI/UX improvement.
 
