@@ -135,7 +135,7 @@ const WeatherApp = () => {
           <div className="flex justify-between p-2">More Details</div>
           <div className="flex justify-between">
             {/*------------ Weather forecast for the next 5 hours in the some day ------------*/}
-            <div className="w-full mx-2 sm:mx-4 overflow-x-auto">
+            <div className="w-full sm:mx-4 overflow-x-auto">
               {forecastData ? (
                 <ForecastHoursDetails data={forecastData} unit={unit} />
               ) : (

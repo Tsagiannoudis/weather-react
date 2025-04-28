@@ -27,7 +27,7 @@ const ForecastHoursDetails = ({ data, unit }) => {
       <h3 className="text-lg font-semibold mb-3 text-left">
         Today's Forecast
       </h3>
-      <div className="flex gap-3 px-4 pb-2">
+      <div className="flex gap-6 px-2 pb-2 h-50 w-full">
         {fcListNextHours.map((forecast) => {
           //  ----------- Ορισμός μεταβλητών μέσα στο map ------------
           const iconCode = forecast?.weather?.[0]?.icon;
@@ -40,7 +40,7 @@ const ForecastHoursDetails = ({ data, unit }) => {
             // ------- Χρηση του forecast.dt ως key  ------------------
             <div
               key={forecast.dt}
-              className="p-2 rounded-lg text-center min-w-[24x] flex-shrink-0 shadow bg-gray-600"
+              className="p-2 rounded-lg text-center min-w-[24px] flex-shrink-0 shadow bg-gray-600"
             >
               {/* ------------------- Εμφάνιση Ώρας ---------------------- */}
               <p className="font-semibold text-sm">
@@ -55,7 +55,7 @@ const ForecastHoursDetails = ({ data, unit }) => {
                 src={iconUrl}
                 alt={description}
                 title={description}
-                className="mx-auto my-1 w-12 h-12"
+                className="mx-auto my-1 w-20 h-20"
                 loading="lazy"
               />
               {/* ---------------- Εμφάνιση Θερμοκρασίας ---------------- */}
