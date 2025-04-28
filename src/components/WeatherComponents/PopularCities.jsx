@@ -5,9 +5,9 @@ const PopularCities = ({ apiKey, unit }) => {
   const popularCities = [
     "New York",
     "London",
-    "Berlin",
+    "Paris",
     "Dubai",
-    "China",
+    "Hong Kong",
     "Tokyo",
   ];
 
