@@ -135,7 +135,7 @@ const WeatherApp = () => {
           <div className="flex justify-between p-2">More Details</div>
           <div className="flex justify-between">
             {/*------------ Weather forecast for the next 5 hours in the some day ------------*/}
-            <div>
+            <div className="w-full mx-2 sm:mx-4 overflow-x-auto">
               {forecastData ? (
                 <ForecastHoursDetails data={forecastData} unit={unit} />
               ) : (
@@ -152,7 +152,7 @@ const WeatherApp = () => {
           <div>
             <div className="mt-4">
               <h3 className="text-s font-semibold mb-3 text-left ml-5">Favorite Cities</h3>
-              <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-6 gap-4 ml-4 mr-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 ml-4 mr-4">
                 {favoriteCities.map((city) => (
                   <div
                     key={city}

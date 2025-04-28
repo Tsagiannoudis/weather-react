@@ -14,10 +14,10 @@ const ForecastHoursDetails = ({ data, unit }) => {
     (forecast) => forecast.dt * 1000 > currentTime
   );
 
-  const forecastListNextFiveHoursOfDay = filterForecast.slice(0, 7);
+  const fcListNextHours = filterForecast.slice(0, 7);
   // Διαχωρίζουμε 3ωρες προβλέψεις της ημέρας σε 7 διαφορετικές ωρες
   
-  if (!forecastListNextFiveHoursOfDay) {
+  if (!fcListNextHours) {
     return <p>No forecast data available.</p>;
   }
 
@@ -27,8 +27,8 @@ const ForecastHoursDetails = ({ data, unit }) => {
       <h3 className="text-lg font-semibold mb-3 text-left">
         Today's Forecast
       </h3>
-      <div className="grid grid-cols-7 gap-3">
-        {forecastListNextFiveHoursOfDay.map((forecast) => {
+      <div className="flex gap-3 px-4 pb-2">
+        {fcListNextHours.map((forecast) => {
           //  ----------- Ορισμός μεταβλητών μέσα στο map ------------
           const iconCode = forecast?.weather?.[0]?.icon;
           const description = forecast?.weather?.[0]?.description;
@@ -37,10 +37,10 @@ const ForecastHoursDetails = ({ data, unit }) => {
           const date = new Date(forecast.dt * 1000);
 
           return (
-            // ------- Χρησιμοποιούμε το forecast.dt ως key  ------------------
+            // ------- Χρηση του forecast.dt ως key  ------------------
             <div
               key={forecast.dt}
-              className="p-2 rounded-lg text-center shadow bg-gray-600"
+              className="p-2 rounded-lg text-center min-w-[24x] flex-shrink-0 shadow bg-gray-600"
             >
               {/* ------------------- Εμφάνιση Ώρας ---------------------- */}
               <p className="font-semibold text-sm">
@@ -55,7 +55,7 @@ const ForecastHoursDetails = ({ data, unit }) => {
                 src={iconUrl}
                 alt={description}
                 title={description}
-                className="mx-auto my-1 w-20 h-20"
+                className="mx-auto my-1 w-12 h-12"
                 loading="lazy"
               />
               {/* ---------------- Εμφάνιση Θερμοκρασίας ---------------- */}
@@ -63,7 +63,7 @@ const ForecastHoursDetails = ({ data, unit }) => {
                 {convertTemperature(forecast.main.temp)}°
                 <sup>{unit === "Celsius" ? "c" : "f"}</sup>
               </p>
-              <p className="text-sm">
+              <p className="text-xs capitalize">
                 {description}
               </p>
             </div>
