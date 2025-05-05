@@ -36,8 +36,8 @@
 - Προσθήκη προβλέψεων για περισσότερες ημέρες.
 - Βελτίωση του UI/UX.
 
-## Screenshots
-src\screenshots\screenshot.png
+## Στιγμιότυπο Οθόνης
+- weather-react/src/screenshots/screenshot.png
 
 ------------------------------------------------------------------------------------
 
@@ -80,4 +80,4 @@ src\screenshots\screenshot.png
 - UI/UX improvement.
 
 ## Screenshots
-src\screenshots\screenshot.png
+- weather-react/src/screenshots/screenshot.png
