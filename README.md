@@ -36,6 +36,9 @@
 - Προσθήκη προβλέψεων για περισσότερες ημέρες.
 - Βελτίωση του UI/UX.
 
+## Screenshots
+src\screenshots\screenshot.png
+
 ------------------------------------------------------------------------------------
 
 # Weather App
@@ -76,3 +79,5 @@
 - Add predictions for more days.
 - UI/UX improvement.
 
+## Screenshots
+src\screenshots\screenshot.png
