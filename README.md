@@ -52,7 +52,6 @@
 - Βελτίωση του UI/UX.
 
 ## Στιγμιότυπο Οθόνης
-- (https://github.com/Tsagiannoudis/weather-react/tree/main/src/screenshots/screenshot.png)
 ![Στυγμιότυπο αρχικής Οθόνης](src/screenshots/screenshot.png)
 
 
@@ -112,4 +111,4 @@
 - UI/UX improvement.
 
 ## Screenshots
-- weather-react/src/screenshots/screenshot.png
+![ScreenShot](src/screenshots/screenshot.png)
