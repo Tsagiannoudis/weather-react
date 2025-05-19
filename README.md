@@ -52,7 +52,9 @@
 - Βελτίωση του UI/UX.
 
 ## Στιγμιότυπο Οθόνης
-- weather-react/src/screenshots/screenshot.png
+- (weather-react/src/screenshots/screenshot.png)
+![εμφάνιζει αρχικής](weather-react/src/screenshots/screenshot.png)
+
 
 ------------------------------------------------------------------------------------
 
