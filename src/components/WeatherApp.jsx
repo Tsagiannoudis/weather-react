@@ -101,7 +101,7 @@ const WeatherApp = () => {
               Loading data for {city}...
             </p>
           )}
-          {error && !loading && (<p className="text-red-500">{error}</p>)}
+          {!loading && error && <p className="text-red-500">{error}</p>}
         </div>
       </div>
       <div className="flex shadow-2xl rounded-lg min-w-2xs">
@@ -124,7 +124,7 @@ const WeatherApp = () => {
                     onRemoveFromFavorites={removeFromFavorites}
                   />
                 ) : (
-                  <p className="text-lg font-serif"></p>
+                  <p className="text-lg font-serif">There is no current weather data.</p>
                 )}
               </div>
             </div>
@@ -139,7 +139,7 @@ const WeatherApp = () => {
               {forecastData ? (
                 <ForecastHoursDetails data={forecastData} unit={unit} />
               ) : (
-                <p className="text-lg font-serif"></p>
+                <p className="text-lg font-serif">There is no forecast data.</p>
               )}
             </div>
           </div>
