@@ -101,7 +101,7 @@ const WeatherApp = () => {
               Loading data for {city}...
             </p>
           )}
-          {error && !loading(<p className="text-red-500">{error}</p>)}
+          {error && !loading && (<p className="text-red-500">{error}</p>)}
         </div>
       </div>
       <div className="flex shadow-2xl rounded-lg min-w-2xs">
