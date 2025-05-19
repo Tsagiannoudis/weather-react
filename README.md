@@ -31,15 +31,15 @@
 2. Μεταβείτε στον φάκελο του project:
    ```bash
    cd weather-app
-   ```
+   
 3. Εγκαταστήστε τις απαραίτητες εξαρτήσεις:
    ```bash
    npm install
-   ```
+   
 4. Δημιουργήστε ένα αρχείο .env και προσθέστε το API key σας στον φάκελο του project (`weather-react/.env`):
    ```env
    VITE_API_KEY=ΤΟ_API_KEY_ΣΑΣ_ΑΠΟ_OPENWEATHERMAP_ΕΔΩ
-   ```
+   
 5. Εκτελέστε την εφαρμογή:
    ```bash
    npm run dev
@@ -84,24 +84,26 @@
 1. Clone the repository:
    ```bash
    git clone <https://github.com/Tsagiannoudis/weather-react>
-   ````
+   ```
    *Note: This will create a folder named `weather-react`.*
 2. Go to the project folder:
-   ````bash
+   ```bash
    cd weather-app
-   ````
+   
 3. Install the necessary dependencies:
    ```bash
    npm install
-   ```
+   
 4. Create an .env file and add your API key to the project folder (`weather-react/.env`):
    ```env
- VITE_API_KEY=Your_API_KEY_AS_OPENWEATHERMAP_EDO
-   ```
+ VITE_API_KEY=Your_API_KEY_AS_OPENWEATHERMAP_HERE
+   
+
 5. Run the application:
    ```bash
    npm run dev
-   ```
+    ```
+
    *The application will usually be available at `http://localhost:5173`*
 
 ## Future Improvements 
