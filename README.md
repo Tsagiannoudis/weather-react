@@ -53,7 +53,7 @@
 
 ## Στιγμιότυπο Οθόνης
 - (weather-react/src/screenshots/screenshot.png)
-![εμφάνιζει αρχικής](weather-react/src/screenshots/screenshot.png)
+![εμφάνιζει αρχικής](https://github.com/Tsagiannoudis/weather-react/tree/main/src/screenshots/screenshot.png)
 
 
 ------------------------------------------------------------------------------------
