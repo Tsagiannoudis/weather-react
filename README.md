@@ -96,9 +96,8 @@
    
 4. Create an .env file and add your API key to the project folder (`weather-react/.env`):
    ```env
- VITE_API_KEY=Your_API_KEY_AS_OPENWEATHERMAP_HERE
+    VITE_API_KEY=Your_API_KEY_AS_OPENWEATHERMAP_HERE
    
-
 5. Run the application:
    ```bash
    npm run dev
