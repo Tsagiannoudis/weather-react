@@ -4,7 +4,7 @@ function WeatherForm({onSubmit}) {
   const [city, setCity] = useState("");
 
   function handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault(); // Αποτρέπει την επαναφόρτωση της σελίδας
     if (city.trim() === "") {
       alert("Please enter a city name.");
     }

@@ -104,9 +104,9 @@ const WeatherApp = () => {
           {!loading && error && <p className="text-red-500">{error}</p>}
         </div>
       </div>
-      <div className="flex shadow-2xl rounded-lg min-w-2xs">
+      <div className="flex flex-col md:flex-row shadow-2xl rounded-lg min-w-2xs">
         {/* ------------------------ main container -------------------------------- */}
-        <div className="mr-4 rounded-lg shadow-2xl">
+        <div className="w-full md:w-1/3 mb-4 md:mb-0 md:mr-4 rounded-lg shadow-2xl">
           {/*-------------------------left side-------------------------------*/}
           <div
             className="card rounded-sm pl-4 mx-auto shadow-lg"
@@ -131,7 +131,7 @@ const WeatherApp = () => {
           </div>
         </div>
         {/* -------------------------- right side ------------------------------- */}
-        <div className="max-w-6xl rounded-lg p-2">
+        <div className="w-full md:w-2/3 rounded-lg p-2">
           <div className="flex justify-between p-2">More Details</div>
           <div className="flex justify-between">
             {/*------------ Weather forecast for the next 5 hours in the some day ------------*/}
@@ -152,7 +152,7 @@ const WeatherApp = () => {
           <div>
             <div className="mt-4">
               <h3 className="text-s font-semibold mb-3 text-left ml-5">Favorite Cities</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 ml-4 mr-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4 ml-4 mr-4">
                 {favoriteCities.map((city) => (
                   <div
                     key={city}
