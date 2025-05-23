@@ -12,14 +12,19 @@ const WeatherApp = () => {
   const [city, setCity] = useState("Thessaloniki");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [favoriteCities, setFavoriteCities] = useState(() => { // αποθήκευση αγαπημένων πόλεων στο localStorage
+  const [favoriteCities, setFavoriteCities] = useState(() => {
+    // αποθήκευση αγαπημένων πόλεων στο localStorage
     const savedCities = localStorage.getItem("favoriteCities");
     return savedCities ? JSON.parse(savedCities) : [];
   });
 
   useEffect(() => {
-    const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric`;
-    const forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric`;
+    const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
+      city
+    )}&appid=${apiKey}&units=metric`;
+    const forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(
+      city
+    )}&appid=${apiKey}&units=metric`;
 
     if (!city) {
       setWeatherData(null);
@@ -62,7 +67,8 @@ const WeatherApp = () => {
     fetchWeatherData(); //αλλαγή πολής με fetchWeatherData
   }, [apiKey, city]);
 
-  useEffect(() => { // αποθήκευση αγαπημένων πόλεων στο localStorage
+  useEffect(() => {
+    // αποθήκευση αγαπημένων πόλεων στο localStorage
     localStorage.setItem("favoriteCities", JSON.stringify(favoriteCities));
   }, [favoriteCities]);
 
@@ -84,9 +90,7 @@ const WeatherApp = () => {
   };
 
   const removeFromFavorites = (cityRemove) => {
-    const updatedCities = favoriteCities.filter(
-      (city) => city !== cityRemove
-    );
+    const updatedCities = favoriteCities.filter((city) => city !== cityRemove);
     setFavoriteCities(updatedCities);
   };
 
@@ -124,7 +128,9 @@ const WeatherApp = () => {
                     onRemoveFromFavorites={removeFromFavorites}
                   />
                 ) : (
-                  <p className="text-lg font-serif">There is no current weather data.</p>
+                  <p className="text-lg font-serif">
+                    There is no current weather data.
+                  </p>
                 )}
               </div>
             </div>
@@ -151,18 +157,30 @@ const WeatherApp = () => {
           </div>
           <div>
             <div className="mt-4">
-              <h3 className="text-s font-semibold mb-3 text-left ml-5">Favorite Cities</h3>
+              <h3 className="text-s font-semibold mb-3 text-left ml-5">
+                Favorite Cities
+              </h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4 ml-4 mr-4">
                 {favoriteCities.map((city) => (
                   <div
                     key={city}
-                    className="p-1 rounded-lg text-center shadow bg-gray-600 cursor-pointer"
+                    className="p-2 rounded-lg text-center shadow bg-gray-600 flex items-center justify-between"
                     onClick={() => handleCityChange(city)}
                   >
-                    <h4 className="font-bold text-sm">{city}</h4>
+                    <h4 className="font-bold text-sm cursor-pointer hover:text-blue-300 flex-grow text-left ml-1">
+                      {city}
+                    </h4>
+                    <button onClick={(e) => {
+                      e.stopPropagation(); //Αποφυγή εκτέλεσης του onClick του div
+                      removeFromFavorites(city)
+                      }}>
+                      <span className="text-red-500 text-xs cursor-pointer">
+                        ❌
+                      </span>
+                    </button>
                   </div>
                 ))}
-                </div>
+              </div>
             </div>
           </div>
         </div>
