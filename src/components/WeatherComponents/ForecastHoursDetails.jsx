@@ -8,14 +8,14 @@ const ForecastHoursDetails = ({ data, unit }) => {
       : Math.round((temp * 9) / 5 + 32);
   };
 
-  // Ελέγχουμε αν την τρέχουσα ώρα της πρόβλεψη
+  // Ελέγχος της τρέχουσα ώρα της πρόβλεψη
   const currentTime = new Date();
   const filterForecast = data.list.filter(
     (forecast) => forecast.dt * 1000 > currentTime
   );
 
   const fcListNextHours = filterForecast.slice(0, 7);
-  // Διαχωρίζουμε 3ωρες προβλέψεις της ημέρας σε 7 διαφορετικές ωρες
+  // Διαχωρίση για 3ωρες προβλέψεις της ημέρας σε 7 διαφορετικές ωρες
   
   if (!fcListNextHours) {
     return <p>No forecast data available.</p>;
@@ -27,7 +27,7 @@ const ForecastHoursDetails = ({ data, unit }) => {
       <h3 className="text-lg font-semibold mb-3 text-left">
         Today's Forecast
       </h3>
-      <div className="flex gap-6 px-2 pb-2 h-50 w-full">
+      <div className="flex flex-col md:flex-row gap-4 px-2 pb-2 w-full md:overflow-x-auto">
         {fcListNextHours.map((forecast) => {
           //  ----------- Ορισμός μεταβλητών μέσα στο map ------------
           const iconCode = forecast?.weather?.[0]?.icon;
@@ -40,7 +40,7 @@ const ForecastHoursDetails = ({ data, unit }) => {
             // ------- Χρηση του forecast.dt ως key  ------------------
             <div
               key={forecast.dt}
-              className="p-2 rounded-lg text-center min-w-[24px] flex-shrink-0 shadow bg-gray-600"
+              className="p-2 rounded-lg text-center md:min-w-[100px] md:w-auto flex-shrink-0 shadow bg-gray-600"
             >
               {/* ------------------- Εμφάνιση Ώρας ---------------------- */}
               <p className="font-semibold text-sm">

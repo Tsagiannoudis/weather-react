@@ -106,15 +106,15 @@ const WeatherApp = () => {
       </div>
       <div className="flex flex-col md:flex-row shadow-2xl rounded-lg min-w-2xs">
         {/* ------------------------ main container -------------------------------- */}
-        <div className="w-full md:w-1/3 mb-4 md:mb-0 md:mr-4 rounded-lg shadow-2xl">
+        <div className="w-full md:w-1/3 mb-4 md:mb-0 rounded-lg shadow-2xl">
           {/*-------------------------left side-------------------------------*/}
           <div
-            className="card rounded-sm pl-4 mx-auto shadow-lg"
+            className="card pl-4 rounded-bl-lg rounded-tl-lg mx-auto shadow-lg bg-[#436e6f] h-full"
             id="weatherCard"
           >
-            <div className="">
+            <div className="h-full">
               {/*------------------------- Weather at the momemt ---------------------*/}
-              <div className="pt-5 pb-5">
+              <div className="pt-5 pb-5 h-full">
                 {weatherData ? (
                   <WeatherDetailsCard
                     data={weatherData}
@@ -131,7 +131,7 @@ const WeatherApp = () => {
           </div>
         </div>
         {/* -------------------------- right side ------------------------------- */}
-        <div className="w-full md:w-2/3 rounded-lg p-2">
+        <div className="w-full md:w-2/3 rounded-tr-lg rounded-br-lg p-2 bg-[#6a8e8f]">
           <div className="flex justify-between p-2">More Details</div>
           <div className="flex justify-between">
             {/*------------ Weather forecast for the next 5 hours in the some day ------------*/}

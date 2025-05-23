@@ -52,7 +52,9 @@
 - Βελτίωση του UI/UX.
 
 ## Στιγμιότυπο Οθόνης
-![Στυγμιότυπο αρχικής Οθόνης](src/screenshots/screenshot.png)
+![Στυγμιότυπο αρχικής Οθόνης](src/screenshots/capture-pc.gif)
+![Στυγμιότυπο αρχικής Οθόνης](src/screenshots/capture-tablet.gif)
+![Στυγμιότυπο αρχικής Οθόνης](src/screenshots/capture-phone.gif)
 
 
 ------------------------------------------------------------------------------------
@@ -111,4 +113,6 @@
 - UI/UX improvement.
 
 ## Screenshots
-![ScreenShot](src/screenshots/screenshot.png)
+![ScreenShot](src/screenshots/capture-pc.gif)
+![ScreenShot](src/screenshots/capture-tablet.gif)
+![ScreenShot](src/screenshots/capture-phone.gif)

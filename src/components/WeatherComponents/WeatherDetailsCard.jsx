@@ -20,8 +20,8 @@ const WeatherDetails = ({ data, unit, onUnitChange, onAddToFavorites, onRemoveFr
       : Math.round((temperature * 9) / 5 + 32);
 
   return (
-    <div className="w-65">
-      <div className="">
+    <div className="w-full max-w-sm mx-auto p-4 h-full">
+      <div className="h-full">
         {/* ---------- Title, FavoriteButton, Image, description ------------ */}
         <h2 style={{ fontSize: "16px", fontWeight: "bold" }}>
           Current Weather
